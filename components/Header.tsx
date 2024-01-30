@@ -6,6 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/images/vo-logo.png";
+import { motion } from "framer-motion";
 
 const menu = [
   { name: "Services", href: "#" },
@@ -19,18 +20,26 @@ export default function Header() {
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <header className="bg-black ">
+    <header className="bg-black sticky top-0">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global">
-        <div className=" font-bold text-xl text-lightBrown">
+        <motion.div
+          initial={{ x: -500, opacity: 0, scale: 0.5 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className=" font-bold text-xl text-lightBrown">
           <Link href="/" className="flex items-center">
             <Image height={70} width={70} src={logo} alt="logo" />
             <span className="">VerticalOverseas</span>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="hidden lg:flex justify-between items-center">
+        <motion.div
+          initial={{ x: 500, opacity: 0, scale: 0.5 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="hidden lg:flex justify-between items-center">
           {menu.map(e => (
             <div key={e.name}>
               <h1 className="text-darkBrown hover:text-lightBrown mx-4 cursor-pointer text-lg">
@@ -43,7 +52,7 @@ export default function Header() {
               Book A Consultation
             </button>
           </div>
-        </div>
+        </motion.div>
 
         <div className="flex lg:hidden">
           <button

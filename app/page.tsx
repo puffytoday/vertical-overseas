@@ -1,12 +1,19 @@
+"use client";
+
+import About from "@/components/About";
+import Hero from "@/components/Hero";
+
 export default function Home() {
   return (
-    <main className="bg-black">
-      <section className="max-w-7xl mx-auto p-6">
-        <h2 className="font-bold text-5xl text-lightBrown py-16">
-          Vertical Overseas - Bringing the Best of Indian Agriculture to Your
-          Doorstep
-        </h2>
-      </section>
+    <main className="bg-black text-lightBrown h-screen snap-y snap-mandatory overflow-scroll z-0">
+      <div className="">
+        <section id="hero" className=" mx-auto p-6 snap-start">
+          <Hero />
+        </section>
+        <section id="about" className="snap-center">
+          <About />
+        </section>
+      </div>
     </main>
   );
 }
